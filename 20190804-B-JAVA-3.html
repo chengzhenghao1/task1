@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>葡萄藤PPT</title>
+
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/css/reveal/reveal.css">
+
+    <!-- PPT主题，可以在/css/reveal/theme/中选择其他主题，目前暂时只能使用该模板 -->
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/css/reveal/theme/ptt.css">
+
+    <!-- syntax highlighting 代码高亮主题 -->
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/lib/reveal/css/zenburn.css">
+
+    <!-- 打印和PDF输出样式 -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? './css/reveal/print/pdf.css' : '../css/reveal/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+	<style>
+		.left{ text-align: left; }
+	</style>
+</head>
+<body>
+<img src="https://ptteng.github.io/PPT/img/demo/logo.png" alt="" usemap="#pttmap" class="base-logo">
+<map name="pttmap">
+    <area shape="rect" coords="0,0,276,58" href="http://www.jnshu.com" alt="" target="_blank"/>
+</map>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <p>什么叫MVC，Spring里对应的MVC分别是什么，是怎么收到用户请求然后分发给不同的Controller的？</p>
+		   
+            <p>分享人：程政皓</p>	
+        </section>
+        <section>
+            <p>1.背景介绍</p>
+            <p>2.知识剖析</p>
+            <p>3.常见问题</p>  
+            <p>4.解决方案</p>          
+            <p>5.编码实战</p>
+            <p>6.扩展思考</p>
+            <p>7.参考文献</p>
+            <p>8.更多讨论</p>
+        </section>
+         <section class="stack past" style="top: 0px; display: block;" data-previous-indexv="0" hidden="" aria-hidden="true">
+            <section style="top: 267px; display: block;" class="" aria-hidden="true">
+                <h3>1.背景介绍</h3>
+            </section>
+            <section class="future" aria-hidden="true" style="top: 198px; display: none;" hidden="">
+            	<p>MVC模式是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型、视图和控制器。 MVC模式最早由Trygve Reenskaug在1978年提出，是施乐帕罗奥多研究中心在20世纪80年代为程序语言Smalltalk发明的一种软件架构。</p>
+				<p></p>
+				<p></p>
+				<p></p>
+			</section>
+            </section>
+		    <section class="stack past" style="top: 0px; display: block;" data-previous-indexv="0" hidden="" aria-hidden="true">
+			<section style="top: 267px; display: block;" class="" aria-hidden="true">
+				<h3>2.知识剖析</h3>
+			</section>
+            <section class="future" aria-hidden="true" style="top: 198px; display: none;" hidden="">
+            	<p>MVC模式（Model–view–controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）</p>
+            	</section>
+            <section class="future" aria-hidden="true" style="top: 198px; display: none;" hidden="">
+            	<p>最上面的一层，是直接面向最终用户的"视图层"（View）。它是提供给用户的操作界面，是程序的外壳</p>
+            	<p>最底下的一层，是核心的"数据层"（Model），也就是程序需要操作的数据或信息</p>
+            	<p>中间的一层，就是"控制层"（Controller），它负责根据用户从"视图层"输入的指令，选取"数据层"中的数据，然后对其进行相应的操作，产生最终结果</p>
+            	</section>
+            <section class="future" aria-hidden="true" style="top: 198px; display: none;" hidden="">
+            	<p>这三层是紧密联系在一起的，但又是互相独立的，每一层内部的变化不影响其他层。每一层都对外提供接口（Interface），供上面一层调用。这样一来，软件就可以实现模块化，修改外观或者变更数据都不用修改其他层，大大方便了维护和升级</p>
+            	</section>
+			<section class="future" aria-hidden="true" style="top: 198px; display: none;" hidden="">	
+				<p>Controller层:Controller层负责具体的业务模块流程的控制，在此层里面要调用Serice层的接口来控制业务流程，控制的配置也同样是在Spring的配置文件里面进行，针对具体的业务流程，会有不同的控制器，我们具体的设计过程中可以将流程进行抽象归纳，设计出可以重复利用的子单元流程模块，这样不仅使程序结构变得清晰，也大大减少了代码量。</p>
+				</section>
+			<section class="future" aria-hidden="true" style="top: 198px; display: none;" hidden="">
+				<p>用Windows的计算器小程序为例，解释一下MVC模式，在这个计算器程序中，外部的那些按钮和最上面的显示条，就是"视图层"，那些需要运算的数字就是"数据层"，执行加减乘除的那些内部运算步骤就是"控制层"。每一层执行不同的功能，整个程序的结构非常清楚</p>
+				<p>对外提供一组触发器（本例中是按钮），然后执行一些内部操作，最后返回结果。因此，MVC模式的应用是非常广泛的</p>
+				</section>
+			<section class="future" aria-hidden="true" style="top: 198px; display: none;" hidden="">
+				<p>它是收到用户请求然后分发给不同的Controller的</p>
+				</section>
+			<section class="future" aria-hidden="true" style="top: 198px; display: none;" hidden="">
+				<p><img src="C:\Users\admin\Desktop\图片暂存\20171115141423803.png"></p>
+			</section>				
+		</section>
+		<section class="stack past" style="top: 0px; display: block;" data-previous-indexv="0" hidden="" aria-hidden="true">
+			<section style="top: 267px; display: block;" class="" aria-hidden="true">
+				<h3>3.常见问题</h3>
+			</section>	
+			<section class="future" aria-hidden="true" style="top: 198px; display: none;" hidden="">				
+				<p>为什么要遵循REST风格?</p>
+				<p>请求地址和请求方式有什么要求吗？</p>
+				<p></p>
+				<p></p>
+			</section>
+		</section>
+		<section  class="stack past" style="top: 0px; display: block;" data-previous-indexv="0" hidden="" aria-hidden="true">
+			<section style="top: 267px; display: block;" class="" aria-hidden="true">
+	        	<h3>4.解决方案</h3>
+	        </section>	
+			<section class="future" aria-hidden="true" style="top: 198px; display: none;" hidden="">
+	        	<p>有利于前后端彻底分离，风格统一。看起来有条理</p>
+	        	<p>强制请求方式遵循REST风格。在一个处理器里同一个接口里只能有一种请求方式</p>
+        </section>	
+		<section class="future" aria-hidden="true" style="top: 198px; display: none;" hidden="">
+	        	<p></p>
+	        	<p></p>
+	        </section>
+		</section>
+		<section  class="stack past" style="top: 0px; display: block;" data-previous-indexv="0" hidden="" aria-hidden="true">
+			<section style="top: 267px; display: block;" class="" aria-hidden="true">
+				<h3>5.编码实战</h3>
+			</section>			
+		</section>
+		<section  class="stack past" style="top: 0px; display: block;" data-previous-indexv="0" hidden="" aria-hidden="true">
+			<section style="top: 267px; display: block;" class="" aria-hidden="true">
+				<h3>6.扩展思考</h3>				
+			</section>
+			<section class="future" aria-hidden="true" style="top: 198px; display: none;" hidden="">
+				<p>Spring MVC 特点</p>
+				<p>清晰的角色划分：</p>
+				<p>控制器（controller）、验证器（validator）、 命令对象（command object）、表单对象（formobject）、模型对象（model object）、 Servlet分发器（DispatcherServlet）、处理器映射（handler mapping）、视图解析器（view resolver）等。每一个角色都可以由一个专门的对象来实现</p>
+				<p> 强大而直接的配置方式：</p>
+				<p>将框架类和应用程序类都能作为JavaBean配置，支持跨多个context的引用，例如，在web控制器中对业务对象和验证器（validator）的引用</p>
+				</section>
+			<section class="future" aria-hidden="true" style="top: 198px; display: none;" hidden="">
+				<p>可适配、非侵入：</p>
+				<p>可以根据不同的应用场景，选择合适的控制器子类 （simple型、command型、form型、wizard型、multi-action型或者自定义），而不是从单一控制器 （比如Action/ActionForm）继承</p>
+				<p>可重用的业务代码：</p>
+				<p>可以使用现有的业务对象作为命令或表单对象，而不需要去扩展某个特定框架的基类</p>
+				<p>可定制的绑定（binding） 和验证（validation）：</p>
+				<p>比如将类型不匹配作为应用级的验证错误， 这可以保存错误的值。再比如本地化的日期和数字绑定等等。在其他某些框架中，你只能使用字符串表单对象，需要手动解析它并转换到业务对象</p>
+			</section>
+			<section class="future" aria-hidden="true" style="top: 198px; display: none;" hidden="">
+				<p>可定制的handlermapping和view resolution：</p>
+				<p>Spring提供从最简单的URL映射， 到复杂的、专用的定制策略。与某些webMVC框架强制开发人员使用单一特定技术相比，Spring显得更加灵活</p>
+				<p>灵活的model转换：</p>
+				<p>在Springweb框架中，使用基于Map的 键/值对来达到轻易地与各种视图技术的集成</p>
+				<p>可定制的本地化和主题（theme）解析：</p>
+				<p>支持在JSP中可选择地使用Spring标签库、支持JSTL、支持Velocity（不需要额外的中间层）等等</p>
+            </section>
+			<section class="future" aria-hidden="true" style="top: 198px; display: none;" hidden="">
+				<p>简单而强大的JSP标签库（SpringTag Library）：</p>
+				<p>支持包括诸如数据绑定和主题（theme） 之类的许多功能</p>
+				<p>JSP表单标签库：</p>
+				<p>在Spring2.0中引入的表单标签库，使得在JSP中编写 表单更加容易</p>
+				<p> Spring Bean的生命周期可以被限制在当前的HTTP Request或者HTTP Session</p>
+            </section>
+			<section class="future" aria-hidden="true" style="top: 198px; display: none;" hidden="">
+               <p></p>
+		</section>
+	</section>
+		<section class="stack past" style="top: 0px; display: block;" data-previous-indexv="0" hidden="" aria-hidden="true">
+			<section style="top: 267px; display: block;" class="" aria-hidden="true">
+			<h3>7.参考文献</h3>
+			<p>http://www.ruanyifeng.com/blog/2007/11/mvc.html</p>
+			<p>https://blog.csdn.net/zdwzzu2006/article/details/6053006</p>
+			<p>https://blog.csdn.net/lixiao1048/article/details/51869048</p>
+			<p></p>
+		</section>
+        </section>
+        <section class="stack past" style="top: 0px; display: block;" data-previous-indexv="0" hidden="" aria-hidden="true">
+			<section style="top: 267px; display: block;" class="" aria-hidden="true">
+            <h3>8.更多讨论</h3>	
+        </section>
+         </section>
+        <section class="stack past" style="top: 0px; display: block;" data-previous-indexv="0" hidden="" aria-hidden="true">
+			<section style="top: 267px; display: block;" class="" aria-hidden="true">
+            <h3>分享到此结束</h3>
+            <p></p>            
+        </section>
+        <section class="stack past" style="top: 0px; display: block;" data-previous-indexv="0" hidden="" aria-hidden="true">
+			<section style="top: 267px; display: block;" class="" aria-hidden="true">
+			</section>
+			<section class="future" aria-hidden="true" style="top: 198px; display: none;" hidden="">				
+			</section>
+		</section>
+
+    </div>
+</div>
+
+<script src="https://ptteng.github.io/PPT/lib/reveal/js/head.min.js"></script>
+<script src="https://ptteng.github.io/PPT/lib/reveal/reveal.js"></script>
+
+<script>
+
+    // 以下为常见配置属性的默认值
+    // {
+    // 	controls: true, // 是否在右下角展示控制条
+    // 	progress: true, // 是否显示演示的进度条
+    // 	slideNumber: false, // 是否显示当前幻灯片的页数编号，也可以使用代码slideNumber: 'c / t' ，表示当前页/总页数。
+    // 	history: false, // 是否将每个幻灯片改变加入到浏览器的历史记录中去
+    // 	keyboard: true, // 是否启用键盘快捷键来导航
+    // 	overview: true, // 是否启用幻灯片的概览模式，可使用"Esc"或"o"键来切换概览模式
+    // 	center: true, // 是否将幻灯片垂直居中
+    // 	touch: true, // 是否在触屏设备上启用触摸滑动切换
+    // 	loop: false, // 是否循环演示
+    // 	rtl: false, // 是否将演示的方向变成RTL，即从右往左
+    // 	fragments: true, // 全局开启和关闭碎片。
+    // 	autoSlide: 0, // 两个幻灯片之间自动切换的时间间隔（毫秒），当设置成 0 的时候则禁止自动切换，该值可以被幻灯片上的 ` data-autoslide` 属性覆盖
+    // 	transition: 'default', // 切换过渡效果，有none/fade/slide/convex/concave/zoom
+    // 	transitionSpeed: 'default', // 过渡速度，default/fast/slow
+    // 	mouseWheel: true, //是否启用通过鼠标滚轮来切换幻灯片
+    // }
+
+    // 初始化幻灯片
+    Reveal.initialize({
+        history: true,
+        dependencies: [
+            { src: './plugin/markdown/marked.js' },
+            { src: './plugin/markdown/markdown.js' },
+            { src: './plugin/notes/notes.js', async: true },
+            { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+    });
+</script>
+</body>
+</html>
